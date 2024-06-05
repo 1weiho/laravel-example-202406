@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CustomerController extends Controller
 {
@@ -24,12 +25,35 @@ class CustomerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'identity' => 'required',
+            'identity' => 'required|unique:customers,identity',
             'gender' => 'required|in:M,F',
             'birthday' => 'required|date',
         ]);
 
         Customer::create($request->all());
+
+        return redirect()->route('dashboard');
+    }
+
+    public function edit(int $id): View
+    {
+        $customer = Customer::findOrFail($id);
+
+        return view('customer.edit', compact('customer'));
+    }
+
+    public function update(Request $request, int $id): RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required',
+            'identity' => 'required|unique:customers,identity,'.$id.',id',
+            'gender' => 'required|in:M,F',
+            'birthday' => 'required|date',
+        ]);
+
+        $customer = Customer::findOrFail($id);
+
+        $customer->update($request->all());
 
         return redirect()->route('dashboard');
     }

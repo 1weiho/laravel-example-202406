@@ -33,6 +33,9 @@
                                     <th scope="col" class="px-6 py-3">
                                         生日
                                     </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        操作
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +52,9 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $customer->birthday }}
+                                    </td>
+                                    <td class="px-6 py-4 flex space-x-4">
+                                        <a href="/customer/{{ $customer->id }}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
                                     </td>
                                 </tr>
                                 @endforeach
