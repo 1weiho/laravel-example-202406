@@ -9,7 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h3 class="text-xl">客人資料</h3>
+                    <div class="flex justify-between">
+                        <h3 class="text-xl">客人資料</h3>
+                        <a href="/customer/create">
+                            <x-primary-button>
+                                創建客人
+                            </x-primary-button>
+                        </a>
+                    </div>
                     <div class="relative overflow-x-auto mt-8">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
