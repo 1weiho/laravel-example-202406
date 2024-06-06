@@ -49,7 +49,7 @@
                         <div class="mt-4">
                             <x-input-label for="birthday" value="生日" />
 
-                            <x-text-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" required />
+                            <x-text-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required />
 
                             <x-input-error :messages="$errors->get('birthday')" class="mt-2" />
                         </div>

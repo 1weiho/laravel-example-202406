@@ -25,7 +25,7 @@ class CustomerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'identity' => 'required|unique:customers,identity',
+            'identity' => 'required|unique:customers,identity|regex:/^[A-Z][12]\d{8}$/',
             'gender' => 'required|in:M,F',
             'birthday' => 'required|date',
         ]);
@@ -46,7 +46,7 @@ class CustomerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'identity' => 'required|unique:customers,identity,'.$id.',id',
+            'identity' => 'required|unique:customers,identity,'.$id.',id|regex:/^[A-Z][12]\d{8}$/',
             'gender' => 'required|in:M,F',
             'birthday' => 'required|date',
         ]);
