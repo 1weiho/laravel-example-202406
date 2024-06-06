@@ -14,6 +14,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/customer', [CustomerController::class, 'store'])->name('customer.store');
     Route::get('/customer/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
     Route::patch('/customer/{id}', [CustomerController::class, 'update'])->name('customer.update');
+    Route::get('/customer/{id}/delete', [CustomerController::class, 'delete'])->name('customer.delete');
+    Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
 });
 
 Route::middleware('auth')->group(function () {

@@ -57,4 +57,20 @@ class CustomerController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function delete(int $id): View
+    {
+        $customer = Customer::findOrFail($id);
+
+        return view('customer.delete', compact('customer'));
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        $customer = Customer::findOrFail($id);
+
+        $customer->delete();
+
+        return redirect()->route('dashboard');
+    }
 }

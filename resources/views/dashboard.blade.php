@@ -55,6 +55,7 @@
                                     </td>
                                     <td class="px-6 py-4 flex space-x-4">
                                         <a href="/customer/{{ $customer->id }}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
+                                        <a href="/customer/{{ $customer->id }}/delete" class="font-medium text-red-600 dark:text-red-500 hover:underline">刪除</a>
                                     </td>
                                 </tr>
                                 @endforeach
