@@ -42,13 +42,13 @@
                                 @foreach($customers as $customer)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $customer->name }}
+                                        {{ mb_substr($customer->name, 0, 1) . 'O' . mb_substr($customer->name, 2) }}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{ $customer->identity }}
+                                        {{ mb_substr($customer->identity, 0, 3) . '******' . mb_substr($customer->identity, -1) }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $customer->gender }}
+                                        {{ $customer->gender == 'M' ? '男性' : '女性' }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $customer->birthday }}
