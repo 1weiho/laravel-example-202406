@@ -33,12 +33,12 @@
 
                             <div class="flex space-x-2 mt-2 items-center">
                                 <div class="flex items-center space-x-1">
-                                    <input type="radio" id="male" name="gender" value="M" checked="$customer->gender == 'M'" />
+                                    <input type="radio" id="male" name="gender" value="M" {{ old('gender', $customer->gender) == 'M' ? 'checked' : '' }} />
                                     <label for="male">男性</label>
                                 </div>
     
                                 <div class="flex items-center space-x-1">
-                                    <input type="radio" id="female" name="gender" value="F" checked="$customer->gender == 'F'" />
+                                    <input type="radio" id="female" name="gender" value="F" {{ old('gender', $customer->gender) == 'F' ? 'checked' : '' }} />
                                     <label for="female">女性</label>
                                 </div>
                             </div>
